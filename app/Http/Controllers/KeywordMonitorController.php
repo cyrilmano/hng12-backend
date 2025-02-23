@@ -73,7 +73,7 @@ class KeywordMonitorController extends Controller
         $expectedInterval = env('TELEX_DEFAULT_INTERVAL');
 
         if ($channelId !== $expectedChannelId) {
-            return response()->json(['error' => 'Invalid Summary Channel ID'], 403);
+            return response()->json(['error' => 'Invalid Channel ID'], 403);
         }
 
         $defaultInterval = $settings[0]['default'] ?? null;
@@ -98,6 +98,7 @@ class KeywordMonitorController extends Controller
         $webhookUrl = env('TELEX_SUMMARY_CHANNEL_WEBHOOK_URL');
         $this->sendToTelex($webhookUrl, $summaryMessage);
 
+        Log::info('SUMMARY SENT');
         return response()->json(["message" => "Summary sent"], 200);
     }
 
@@ -108,7 +109,7 @@ class KeywordMonitorController extends Controller
                 'event_name' => 'Daily Summary',
                 'message' => $message,
                 'status' => 'success',
-                'username' => 'your-username'
+                'username' => 'Cyril'
             ]);
 
             if ($response->failed()) {
