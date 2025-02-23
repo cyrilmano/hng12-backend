@@ -86,7 +86,7 @@ class KeywordMonitorController extends Controller
             ->get()
             ->groupBy('keyword');
 
-        $summaryMessage = "Daily Keyword Summary \n\n";
+        $summaryMessage = "Daily Keyword Sensor Summary \n\n";
         foreach ($summary as $keyword => $messages) {
             $summaryMessage .= "*$keyword*\n";
             foreach ($messages as $msg) {
