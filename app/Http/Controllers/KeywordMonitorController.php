@@ -109,7 +109,7 @@ class KeywordMonitorController extends Controller
                 'event_name' => 'Daily Summary',
                 'message' => $message,
                 'status' => 'success',
-                'username' => 'Cyril'
+                'username' => 'ThankGod Cyril Uche on LinkedIn'
             ]);
 
             if ($response->failed()) {
